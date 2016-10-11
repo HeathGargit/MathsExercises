@@ -1,3 +1,2 @@
-# MathLib
-Maths for Games Static Math Library
-Student Project for AIE. By Heath Parkes
+# MathsExercises
+Maths for Games Static Math Library for doing exercises each week.
