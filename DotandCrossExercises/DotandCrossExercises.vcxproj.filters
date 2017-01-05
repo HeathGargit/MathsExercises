@@ -15,26 +15,23 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TrigonometryApp.cpp">
+    <ClCompile Include="DotandCrossExercisesApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TrigonometryApp.h">
+    <ClInclude Include="DotandCrossExercisesApp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
+    <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\MathLib\ExerciseAnswers.txt">
+    <Text Include="ExerciseAnswersDotandCross.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

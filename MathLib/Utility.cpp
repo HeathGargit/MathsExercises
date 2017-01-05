@@ -195,28 +195,33 @@ float radToDeg(float radians)
 	return radians * _180_OVER_PI;
 }
 
+//returns exactly of float x
 float LinearHalf(float x)
 {
 	float result = x * 0.5f;
 	return result;
 }
 
+//returns the square of float x
 float Quadratic(float x)
 {
 	float result = (x * x);
 	return result;
 }
 
+//returns the Sine of float x
 float Sine(float x)
 {
 	return sin(x);
 }
 
+//returns cosine of float x
 float Cosine(float x)
 {
 	return cos(x);
 }
 
+//returns the absolute value of float x
 float GetAbsolute(float x)
 {
 	int result = x;
@@ -226,6 +231,7 @@ float GetAbsolute(float x)
 	return result;
 }
 
+//returns float x as a negative number, if it isn't already
 float GetUnAbsolute(float x)
 {
 	int result = x;

@@ -1,6 +1,8 @@
 #ifndef _VECTOR2_H_
 #define _VECTOR2_H_
 
+#include <string>
+
 class Vector2
 {
 public:
@@ -12,11 +14,19 @@ public:
 	//overloaded operators
 	Vector2& operator+ (const Vector2& other);
 	Vector2& operator= (const Vector2& other);
+	Vector2& operator- (const Vector2& other);
 
+	//working function
+	float dot(const Vector2& inputVector);
+	
 	//utility functions
 	float magnitude();
 	void normalize();
 	Vector2 normal();
+	std::string to_string();
+	
+
+
 
 public:
 	float x;

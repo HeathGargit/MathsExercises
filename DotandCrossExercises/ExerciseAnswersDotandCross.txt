@@ -1,0 +1,26 @@
+Dot and Cross Product
+
+1a) 0.523599
+b) 0.785398
+c) 1.256637
+
+2a) 85.943672
+b) 270.00
+c) 114.591560
+
+3a) -3, vectror B is pointing "away" from Vector A.
+b) 0, the vectors are perpendicular.
+c) 18, the vectors are pointing the same general direction.
+d) 11, the vectors are pointing the same geenral direction.
+e) 0, the vectors are perpendicular.
+
+4.a) 95.906143 degrees
+b) 90 degrees
+c) 0 degrees
+d) 5.194483
+e) 90 degrees
+
+5a) 6, 26, -16
+b) 220, -592, 24
+c) 0.69, 0, 0.45
+

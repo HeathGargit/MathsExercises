@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{787FFBB8-F175-4EB0-8102-654AF4F8A02D}</ProjectGuid>
+    <ProjectGuid>{0E63FF31-B479-4A6B-AE9F-F4D1254285FD}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Trigonometry</RootNamespace>
+    <RootNamespace>DotandCrossExercises</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -89,16 +89,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="TrigonometryApp.cpp" />
+    <ClCompile Include="DotandCrossExercisesApp.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="TrigonometryApp.h" />
+    <ClInclude Include="DotandCrossExercisesApp.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\MathLib\ExerciseAnswers.txt" />
+    <Text Include="ExerciseAnswersDotandCross.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

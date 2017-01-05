@@ -29,6 +29,11 @@ Vector2& Vector2::operator=(const Vector2& other)
 	return *this;
 }
 
+Vector2& Vector2::operator-(const Vector2& other)
+{
+	return Vector2(x - other.x, y - other.y);
+}
+
 float Vector2::magnitude()
 {
 	return sqrt((x*x)+(y*y));
@@ -46,4 +51,15 @@ Vector2 Vector2::normal()
 	Vector2 normalOfThis(x, y);
 	normalOfThis.normalize();
 	return normalOfThis;
+}
+
+std::string Vector2::to_string()
+{
+	std::string toReturn = std::to_string(x) + ", " + std::to_string(y);
+	return toReturn;
+}
+
+float Vector2::dot(const Vector2 & inputVector)
+{
+	return ((this->x * inputVector.x) + (this->y * inputVector.y));
 }
