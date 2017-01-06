@@ -24,8 +24,7 @@ public:
 	void normalise();
 	Vector2 normal();
 	std::string to_string();
-	
-
+	explicit operator float* () const;
 
 
 public:

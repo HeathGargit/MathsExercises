@@ -67,3 +67,8 @@ std::string Vector3::to_string()
 	std::string toReturn = std::to_string(x) + ", " + std::to_string(y) + ", " + std::to_string(z);
 	return toReturn;
 }
+
+Vector3::operator float*() const
+{
+	return (float*)&x;
+}

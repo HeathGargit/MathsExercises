@@ -59,6 +59,11 @@ std::string Vector2::to_string()
 	return toReturn;
 }
 
+Vector2::operator float*() const
+{
+	return (float*)&x;
+}
+
 float Vector2::dot(const Vector2 & inputVector)
 {
 	return ((this->x * inputVector.x) + (this->y * inputVector.y));
