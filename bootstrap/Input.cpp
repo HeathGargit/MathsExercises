@@ -29,8 +29,10 @@ Input::Input() {
 	};
 
 	auto MouseMoveCallback = [](GLFWwindow* window, double x, double y) {
+		int w = 0, h = 0;
+		glfwGetWindowSize(window, &w, &h);
 
-		Input::getInstance()->onMouseMove((int)x, (int)y);
+		Input::getInstance()->onMouseMove((int)x, h - (int)y);
 
 		for (auto& f : Input::getInstance()->m_mouseMoveCallbacks)
 			f(window, x, y);
@@ -109,8 +111,8 @@ void Input::update() {
 	for (auto& key : m_keysToUpdate)
 		key += 1;
 
-	for (auto& state : m_mouseToUpdate)
-		state += 1;
+	for (auto& id : m_mouseToUpdate)
+		m_mouseState[id] += 1;
 
 	m_mouseToUpdate.clear();
 	m_keysToUpdate.clear();
