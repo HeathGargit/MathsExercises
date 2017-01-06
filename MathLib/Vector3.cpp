@@ -47,7 +47,7 @@ float Vector3::magnitude()
 	return sqrt((x*x)+(y*y)+(z*z));
 }
 
-void Vector3::normalize()
+void Vector3::normalise()
 {
 	float mag = magnitude();
 	x /= mag;
@@ -58,7 +58,7 @@ void Vector3::normalize()
 Vector3 Vector3::normal()
 {
 	Vector3 normalOfThis(x, y, z);
-	normalOfThis.normalize();
+	normalOfThis.normalise();
 	return normalOfThis;
 }
 

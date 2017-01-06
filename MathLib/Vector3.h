@@ -21,7 +21,7 @@ public:
 
 	//utility functions
 	float magnitude();
-	void normalize();
+	void normalise();
 	Vector3 normal();
 	std::string to_string();
 

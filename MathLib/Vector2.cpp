@@ -39,7 +39,7 @@ float Vector2::magnitude()
 	return sqrt((x*x)+(y*y));
 }
 
-void Vector2::normalize()
+void Vector2::normalise()
 {
 	float mag = magnitude();
 	x /= mag;
@@ -49,7 +49,7 @@ void Vector2::normalize()
 Vector2 Vector2::normal()
 {
 	Vector2 normalOfThis(x, y);
-	normalOfThis.normalize();
+	normalOfThis.normalise();
 	return normalOfThis;
 }
 
