@@ -6,6 +6,7 @@
 #include "GameObject.h"
 #include "imgui.h"
 #include "Utility.h"
+#include "Matrix3.h"
 
 DotandCrossExercisesApp::DotandCrossExercisesApp() {
 

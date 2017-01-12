@@ -2,7 +2,7 @@
 
 
 
-Vector3::Vector3()
+Vector3::Vector3() : x(0), y(0), z(0)
 {
 }
 
@@ -34,6 +34,14 @@ Vector3 & Vector3::operator=(const Vector3 & other)
 Vector3 & Vector3::operator-(const Vector3 & other)
 {
 	return Vector3(x - other.x, y - other.y, z - other.z);
+}
+
+Vector3 & Vector3::operator*(const float other)
+{
+	x *= other;
+	y *= other;
+	z *= other;
+	return *this;
 }
 
 Vector3 Vector3::cross(const Vector3 & other)

@@ -3,6 +3,8 @@
 #include <iomanip>
 #include "Vector2.h"
 #include "Vector3.h"
+#include "Vector4.h"
+#include "Matrix3.h"
 
 #ifndef NO_DEFAULT_STREAM_OPERATOR
 
@@ -12,10 +14,10 @@
 	std::ostream& operator << (std::ostream& os, Vector3& rhs) {
 		float* a = (float*)rhs;
 		os << std::setprecision(12) << a[0] << "," << std::setprecision(12) << a[1] << "," << std::setprecision(12) << a[2]; return os; }
-/*	std::ostream& operator << (std::ostream& os, Vector4& rhs) {
+	std::ostream& operator << (std::ostream& os, Vector4& rhs) {
 		float* a = (float*)rhs;
 		os << std::setprecision(12) << a[0] << "," << std::setprecision(12) << a[1] << "," << std::setprecision(12) << a[2] << "," << std::setprecision(12) << a[3]; return os; }
-	std::ostream& operator << (std::ostream& os, Matrix2& rhs) {
+/*	std::ostream& operator << (std::ostream& os, Matrix2& rhs) {
 		float* a = (float*)rhs;
 		for (int i = 0; i < 4; ++i) {
 			os << std::setprecision(12) << a[i];
@@ -23,7 +25,7 @@
 				os << ",";
 		}
 		return os;
-	}
+	}*/
 	std::ostream& operator << (std::ostream& os, Matrix3& rhs) {
 		float* a = (float*)rhs;
 		for (int i = 0; i < 9; ++i) {
@@ -33,7 +35,7 @@
 		}
 		return os;
 	}
-	std::ostream& operator << (std::ostream& os, Matrix4& rhs) {
+	/*std::ostream& operator << (std::ostream& os, Matrix4& rhs) {
 		float* a = (float*)rhs;
 		for (int i = 0; i < 16; ++i) {
 			os << std::setprecision(12) << a[i];
@@ -72,7 +74,7 @@ bool compare( Vector3& A,  Vector3& B, float tolerance = DEFAULT_TOLERANCE) {
 	return true;
 }
 
-/*bool compare( Vector4& A,  Vector4& B, float tolerance = DEFAULT_TOLERANCE) {
+bool compare( Vector4& A,  Vector4& B, float tolerance = DEFAULT_TOLERANCE) {
 	 float* a = ( float*)A;
 	 float* b = ( float*)B;
 	if (abs(a[0] - b[0]) > tolerance || 
@@ -83,7 +85,7 @@ bool compare( Vector3& A,  Vector3& B, float tolerance = DEFAULT_TOLERANCE) {
 	return true;
 }
 
-bool compare( Matrix2& A,  Matrix2& B, float tolerance = DEFAULT_TOLERANCE) {
+/*bool compare( Matrix2& A,  Matrix2& B, float tolerance = DEFAULT_TOLERANCE) {
 	 float* a = ( float*)A;
 	 float* b = ( float*)B;
 	if (abs(a[0] - b[0]) > tolerance || abs(a[1] - b[1]) > tolerance ||
@@ -91,7 +93,7 @@ bool compare( Matrix2& A,  Matrix2& B, float tolerance = DEFAULT_TOLERANCE) {
 		return false;
 	return true;
 }
-
+*/
 bool compare( Matrix3& A,  Matrix3& B, float tolerance = DEFAULT_TOLERANCE) {
 	 float* a = ( float*)A;
 	 float* b = ( float*)B;
@@ -101,7 +103,7 @@ bool compare( Matrix3& A,  Matrix3& B, float tolerance = DEFAULT_TOLERANCE) {
 		return false;
 	return true;
 }
-
+/*
 bool compare( Matrix4& A,  Matrix4& B, float tolerance = DEFAULT_TOLERANCE) {
 	 float* a = ( float*)A;
 	 float* b = ( float*)B;
@@ -135,24 +137,24 @@ bool runUnitTests() {
 	v2c = v2a + v2b;
 	Vector3 v3a(13.5f, -48.23f, 862), v3b(5, 3.99f, -12), v3c;
 	v3c = v3a + v3b;
-	/*Vector4 v4a(13.5f, -48.23f, 862, 0), v4b(5, 3.99f, -12, 1), v4c;
-	v4c = v4a + v4b;*/
+	Vector4 v4a(13.5f, -48.23f, 862, 0), v4b(5, 3.99f, -12, 1), v4c;
+	v4c = v4a + v4b;
 
 	TEST("Vector2 addition", v2c, Vector2(18.5f,-44.24f));
 	TEST("Vector3 addition", v3c, Vector3(18.5f,-44.24f,850));
-	//TEST("Vector4 addition", v4c, Vector4(18.5f,-44.24f,850,1));
+	TEST("Vector4 addition", v4c, Vector4(18.5f,-44.24f,850,1));
 
 	// vector subtraction
 	v2a = Vector2(13.5f, -48.23f); v2b = Vector2(5, 3.99f);
 	v2c = v2a - v2b;
 	v3a = Vector3(13.5f, -48.23f, 862); v3b = Vector3(5, 3.99f, -12);
 	v3c = v3a - v3b;
-	/*v4a = Vector4(13.5f, -48.23f, 862, 0); v4b = Vector4(5, 3.99f, -12, 1);
-	v4c = v4a - v4b;*/
+	v4a = Vector4(13.5f, -48.23f, 862, 0); v4b = Vector4(5, 3.99f, -12, 1);
+	v4c = v4a - v4b;
 
 	TEST("Vector2 subtraction", v2c, Vector2(8.5f,-52.22f));
 	TEST("Vector3 subtraction", v3c, Vector3(8.5f,-52.22f,874));
-	/*TEST("Vector4 subtraction", v4c, Vector4(8.5f,-52.22f,874,-1));
+	TEST("Vector4 subtraction", v4c, Vector4(8.5f,-52.22f,874,-1));
 
 	// vector post-scale
 	v2a = Vector2(13.5f, -48.23f);
@@ -167,7 +169,7 @@ bool runUnitTests() {
 	TEST("Vector4 post-scale", v4c, Vector4(66.0149993896f, -235.844696045f, 4215.1796875f, 0));
 
 	// vector pre-scale
-	v2a = Vector2(13.5f, -48.23f);
+	/*v2a = Vector2(13.5f, -48.23f);
 	v2c = 2.482f * v2a;
 	v3a = Vector3(13.5f, -48.23f, 862);
 	v3c = 0.256f * v3a;
@@ -204,42 +206,42 @@ bool runUnitTests() {
 	float mag2 = v2a.magnitude();
 	v3a = Vector3(13.5f, -48.23f, 862);
 	float mag3 = v3a.magnitude();
-	/*v4a = Vector4(13.5f, -48.23f, 862, 0);
-	float mag4 = v4a.magnitude();*/
+	v4a = Vector4(13.5f, -48.23f, 862, 0);
+	float mag4 = v4a.magnitude();
 
 	TEST("Vector2 magnitude", mag2, 50.0837593079f);
 	TEST("Vector3 magnitude", mag3, 863.453735352f);
-	//TEST("Vector4 magnitude", mag4, 863.453735352f);
+	TEST("Vector4 magnitude", mag4, 863.453735352f);
 
 	// vector normalise
 	v2a = Vector2(-13.5f, -48.23f);
 	v2a.normalise();
 	v3a = Vector3(13.5f, -48.23f, 862);
 	v3a.normalise();
-	/*v4a = Vector4(243, -48.23f, 862, 0);
-	v4a.normalise();*/
+	v4a = Vector4(243, -48.23f, 862, 0);
+	v4a.normalise();
 
 	TEST("Vector2 normalise", v2a, Vector2(-0.269548f,-0.962987f));
 	TEST("Vector3 normalise", v3a, Vector3(0.0156349f,-0.0558571f,0.998316f));
-	//TEST("Vector4 normalise", v4a, Vector4(0.270935f,-0.0537745f,0.961094f,0));
+	TEST("Vector4 normalise", v4a, Vector4(0.270935f,-0.0537745f,0.961094f,0));
 
 	// matrix rotation
-	/*Matrix2 m2;
+	//Matrix2 m2;
 	Matrix3 m3a, m3b, m3c, m3d;
-	Matrix4 m4a, m4b, m4c, m4d;
-	m2.setRotateZ(4.576f);
+	/*Matrix4 m4a, m4b, m4c, m4d;
+	m2.setRotateZ(4.576f);*/
 	m3a.setRotateX(3.98f);
-	m4a.setRotateX(4.5f);
-	m3b.setRotateY(1.76f);
-	m4b.setRotateY(-2.6f);
+	//m4a.setRotateX(4.5f);
+	//m3b.setRotateY(1.76f);
+	//m4b.setRotateY(-2.6f);
 	m3c.setRotateZ(9.62f);
-	m4c.setRotateZ(0.72f);
+	/*m4c.setRotateZ(0.72f);
 
-	TEST("Matrix2 set rotate", m2, Matrix2(-0.135966f,-0.990713f,0.990713f,-0.135966f));
+	TEST("Matrix2 set rotate", m2, Matrix2(-0.135966f,-0.990713f,0.990713f,-0.135966f));*/
 	TEST("Matrix3 set rotate", m3a, Matrix3(1,0,0,0,-0.668648f,-0.743579f,0,0.743579f,-0.668648f));
-	TEST("Matrix3 set rotate", m3b, Matrix3(-0.188077f,0,-0.982154f,0,1,0,0.982154f,0,-0.188077f));
+	//TEST("Matrix3 set rotate", m3b, Matrix3(-0.188077f,0,-0.982154f,0,1,0,0.982154f,0,-0.188077f));
 	TEST("Matrix3 set rotate", m3c, Matrix3(-0.981005f,-0.193984f,0,0.193984f,-0.981005f,0,0,0,1));
-	TEST("Matrix4 set rotate", m4a, Matrix4(1,0,0,0,0,-0.210796f,-0.97753f,0,0,0.97753f,-0.210796f,0,0,0,0,1));
+	/*TEST("Matrix4 set rotate", m4a, Matrix4(1,0,0,0,0,-0.210796f,-0.97753f,0,0,0.97753f,-0.210796f,0,0,0,0,1));
 	TEST("Matrix4 set rotate", m4b, Matrix4(-0.856889f,0,0.515501f,0,0,1,0,0,-0.515501f,0,-0.856889f,0,0,0,0,1));
 	TEST("Matrix4 set rotate", m4c, Matrix4(0.751806f,0.659385f,0,0,-0.659385f,0.751806f,0,0,0,0,1,0,0,0,0,1));
 

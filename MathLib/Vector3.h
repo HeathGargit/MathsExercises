@@ -1,4 +1,6 @@
-#pragma once
+#ifndef _VECTOR3_H_
+#define _VECTOR3_H_
+
 
 #include <string>
 
@@ -14,6 +16,7 @@ public:
 	Vector3& operator+ (const Vector3& other);
 	Vector3& operator= (const Vector3& other);
 	Vector3& operator- (const Vector3& other);
+	Vector3& operator* (const float other);
 
 	//working functions
 	//cross product
@@ -32,3 +35,4 @@ public:
 	float z;
 };
 
+#endif
