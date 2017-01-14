@@ -50,6 +50,11 @@ Vector3 Vector3::cross(const Vector3 & other)
 	return toReturn;
 }
 
+float Vector3::dot(const Vector3 & other)
+{
+	return ((this->x * other.x) + (this->y * other.y) + (this->z * other.z));
+}
+
 float Vector3::magnitude()
 {
 	return sqrt((x*x)+(y*y)+(z*z));
@@ -79,4 +84,9 @@ std::string Vector3::to_string()
 Vector3::operator float*() const
 {
 	return (float*)&x;
+}
+
+Vector3 operator*(float a_LHS, Vector3 & a_RHS)
+{
+	return Vector3(a_RHS * a_LHS);
 }

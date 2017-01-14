@@ -75,3 +75,8 @@ float Vector2::dot(const Vector2 & inputVector)
 {
 	return ((this->x * inputVector.x) + (this->y * inputVector.y));
 }
+
+Vector2 operator*(float a_LHS, Vector2& a_RHS)
+{
+	return Vector2(a_RHS * a_LHS);
+}

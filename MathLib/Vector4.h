@@ -13,6 +13,11 @@ public:
 	Vector4& operator= (const Vector4& other);
 	Vector4& operator- (const Vector4& other);
 	Vector4& operator* (const float other);
+	friend Vector4 operator * (float a_LHS, Vector4& a_RHS);
+
+	//working functions
+	float dot(const Vector4& other);
+	Vector4 cross(const Vector4& other);
 
 	//utility functions
 	operator float* (); //casts the Vector4 to an array of four floats

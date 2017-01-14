@@ -17,10 +17,12 @@ public:
 	Vector3& operator= (const Vector3& other);
 	Vector3& operator- (const Vector3& other);
 	Vector3& operator* (const float other);
+	friend Vector3 operator * (float a_LHS, Vector3& a_RHS);
 
 	//working functions
 	//cross product
 	Vector3 cross(const Vector3& other); //finds the cross product of this and another vector
+	float dot(const Vector3& other); //finds the dot product of this and another vector
 
 	//utility functions
 	float magnitude(); //returns the magnitude of the vector
@@ -29,10 +31,16 @@ public:
 	std::string to_string(); //converts to a std::string format x, y, z
 	explicit operator float* () const; //casts the Vector3 to an array of three floats
 
-	//variables
+	union 
+	{
+		struct { float x, y, z; };
+		struct { float v[3]; };
+	};
+	
+	/*//variables
 	float x;
 	float y;
-	float z;
+	float z;*/
 };
 
 #endif
