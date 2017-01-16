@@ -17,11 +17,12 @@ public:
 	Matrix2 operator + (const Matrix2& a_RHS);
 	Matrix2 operator - (const Matrix2& a_RHS);
 	Matrix2 operator * (const Matrix2& a_RHS);
-	Matrix2 operator = (const Matrix2& a_RHS);
+	Matrix2* operator = (const Matrix2& a_RHS);
 	Vector2 operator * (const Vector2& a_RHS);
 
-	//working operators
+	//utility
 	void setRotateZ(float a_rads);
+	void transpose();
 
 	union
 	{

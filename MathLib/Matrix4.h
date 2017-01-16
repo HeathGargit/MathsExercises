@@ -16,7 +16,7 @@ public:
 	Matrix4 operator + (const Matrix4& a_RHS);
 	Matrix4 operator - (const Matrix4& a_RHS);
 	Matrix4 operator * (const Matrix4& a_RHS);
-	Matrix4 operator = (const Matrix4& a_RHS);
+	Matrix4* operator = (const Matrix4& a_RHS);
 	friend Vector4 operator * (const Matrix4 a_LHS, const Vector4& a_RHS);
 
 	//utility stuff
@@ -24,6 +24,7 @@ public:
 	void setRotateX(float a_rads);
 	void setRotateY(float a_rads);
 	void setRotateZ(float a_rads);
+	void transpose();
 
 	union
 	{

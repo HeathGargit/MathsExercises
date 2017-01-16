@@ -62,6 +62,12 @@ void Matrix4::setRotateZ(float a_rads)
 		0.0f,		   0.0f,		 0.0f, 1.0f);
 }
 
+void Matrix4::transpose()
+{
+	Matrix4 temp(*this);
+	set(temp.m1, temp.m5, temp.m9, temp.m13, temp.m2, temp.m6, temp.m10, temp.m14, temp.m3, temp.m7, temp.m11, temp.m15, temp.m4, temp.m8, temp.m12, temp.m16);
+}
+
 Matrix4 Matrix4::operator+(const Matrix4 & a_RHS)
 {
 
@@ -81,29 +87,29 @@ Matrix4 Matrix4::operator-(const Matrix4 & a_RHS)
 
 Matrix4 Matrix4::operator*(const Matrix4 & a_RHS)
 {
-	Matrix4 result(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	Matrix4 result;
 	for (int fr = 0; fr < 4; fr++)
 	{
 		for (int sc = 0; sc < 4; sc++)
 		{
 			for (int fc = 0; fc < 4; fc++)
 			{
-				result.mm[fr][sc] += mm[fr][fc] * a_RHS.mm[fc][sc];
+				result.mm[fr][sc] += mm[fc][fr] * a_RHS.mm[sc][fc];
 			}
 		}
 	}
+	result.transpose();
 	return result;
 }
 
-Matrix4 Matrix4::operator=(const Matrix4 & a_RHS)
+Matrix4* Matrix4::operator=(const Matrix4 & a_RHS)
 {
-	Matrix4 result;
 	for (int i = 0; i < 16; i++)
 	{
-		result.m[i] = a_RHS.m[i];
+		m[i] = a_RHS.m[i];
 	}
 
-	return result;
+	return this;
 }
 
 void Matrix4::set(float a_m1, float a_m2, float a_m3, float a_m4, float a_m5, float a_m6, float a_m7, float a_m8, float a_m9, float a_m10, float a_m11, float a_m12, float a_m13, float a_m14, float a_m15, float a_m16)
@@ -113,5 +119,15 @@ void Matrix4::set(float a_m1, float a_m2, float a_m3, float a_m4, float a_m5, fl
 
 Vector4 operator*(const Matrix4 a_LHS, const Vector4 & a_RHS)
 {
-	return Vector4();
+	Vector4 result(0, 0, 0, 0);
+	for (int resultColumn = 0; resultColumn < 4; resultColumn++)
+	{
+		for (int matrixRow = 0; matrixRow < 4; matrixRow++)
+		{
+			result.v[resultColumn] += (a_LHS.mm[matrixRow][resultColumn] * a_RHS.v[matrixRow]);
+		}
+	}
+
+
+	return result;
 }

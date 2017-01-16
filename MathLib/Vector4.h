@@ -25,12 +25,16 @@ public:
 	void normalise(); // normalises the 3d portion of the Vector4
 	Vector4 normal(); //returns a copy of this Vector4 with the 3d portion normalised.
 
-
+	union
+	{
+		struct { float x, y, z, w; };
+		struct { float v[4]; };
+	};
 	//variables
-	float x;
+	/*float x;
 	float y;
 	float z;
-	float w;
+	float w;*/
 };
 
 #endif

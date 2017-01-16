@@ -83,18 +83,27 @@ Matrix3 Matrix3::operator-(Matrix3 & a_RHS)
 
 Matrix3 Matrix3::operator*(Matrix3 & a_RHS)
 {	
-	Matrix3 result(0,0,0,0,0,0,0,0,0);
+	//Matrix3((mm[0][0] * a_RHS.mm[0][0])+(mm[0][1] * a_RHS.mm[0][1])
+	Matrix3 result;
 	for (int fr = 0; fr < 3; fr++)
 	{
 		for (int sc = 0; sc < 3; sc++)
 		{
 			for (int fc = 0; fc < 3; fc++)
 			{
-				result.mm[fr][sc] += mm[fr][fc] * a_RHS.mm[fc][sc];
+				result.mm[fr][sc] += mm[fc][fr] * a_RHS.mm[sc][fc];
 			}
 		}
 	}
+	result.transpose();
 	return result;
+}
+
+Matrix3 Matrix3::createIdentity()
+{
+	return Matrix3(1.0f, 0.0f, 0.0f,
+					0.0f, 1.0f, 0.0f,
+					0.0f, 0.0f, 1.0f);
 }
 
 Matrix3 Matrix3::createTranslation(float x, float y)
@@ -105,15 +114,48 @@ Matrix3 Matrix3::createTranslation(float x, float y)
 					x, y, 1.0f);
 }
 
-Matrix3 Matrix3::operator=(const Matrix3 & a_RHS)
+Matrix3 Matrix3::createTranslation(const Vector2 & a_vec)
 {
-	Matrix3 result;
+	return Matrix3(1.0f, 0.0f, 0.0f,
+		0.0f, 1.0f, 0.0f,
+		a_vec.x, a_vec.y, 1.0f);
+}
+
+Matrix3 Matrix3::createTranslation(const Vector3 & a_vec)
+{
+	return Matrix3(1.0f, 0.0f, 0.0f,
+					0.0f, 1.0f, 0.0f,
+					a_vec.x, a_vec.y, a_vec.z);
+}
+
+Matrix3 Matrix3::createRotation(float a_rads)
+{
+	return Matrix3(cosf(a_rads), -sinf(a_rads), 0.0f,
+					sinf(a_rads), cosf(a_rads), 0.0f,
+					0.0f, 0.0f, 1.0f);
+}
+
+Matrix3 Matrix3::createScale(float a_xScale, float a_yScale)
+{
+	return Matrix3(a_xScale, 0.0f, 0.0f,
+					0.0f, a_yScale, 0.0f,
+					0.0f, 0.0f, 1.0f);
+}
+
+void Matrix3::transpose()
+{
+	Matrix3 temp(*this);
+	set(temp.m1, temp.m4, temp.m7, temp.m2, temp.m5, temp.m8, temp.m3, temp.m6, temp.m9);
+}
+
+Matrix3* Matrix3::operator=(const Matrix3 & a_RHS)
+{
 	for (int i = 0; i < 9; i++)
 	{
-		result.m[i] = a_RHS.m[i];
+		m[i] = a_RHS.m[i];
 	}
 
-	return result;
+	return this;
 }
 
 Vector3 operator*(const Matrix3 & a_LHS, const Vector3 & a_RHS)
@@ -123,7 +165,7 @@ Vector3 operator*(const Matrix3 & a_LHS, const Vector3 & a_RHS)
 	{
 		for (int matrixRow = 0; matrixRow < 3; matrixRow++)
 		{
-			result.v[resultColumn] += (a_LHS.mm[resultColumn][matrixRow] * a_RHS.v[matrixRow]);
+			result.v[resultColumn] += (a_LHS.mm[matrixRow][resultColumn] * a_RHS.v[matrixRow]);
 		}
 	}
 

@@ -89,12 +89,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameObject.cpp.old" />
     <ClCompile Include="TrigonometryApp.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameObject.h.old" />
     <ClInclude Include="TrigonometryApp.h" />
   </ItemGroup>
   <ItemGroup>
