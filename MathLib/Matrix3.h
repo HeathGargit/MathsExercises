@@ -1,7 +1,7 @@
 #ifndef _MATRIX3_H_
 #define _MATRIX3_H_
 
-class Vector3;
+#include "Vector3.h"
 
 class Matrix3
 {
@@ -17,7 +17,8 @@ public:
 	Matrix3 operator + (Matrix3& a_RHS);
 	Matrix3 operator - (Matrix3& a_RHS);
 	Matrix3 operator * (Matrix3& a_RHS);
-	Vector3 operator * (const Vector3& a_RHS);
+	Matrix3 operator = (const Matrix3& a_RHS);
+	friend Vector3 operator * (const Matrix3& a_LHS, const Vector3& a_RHS);
 
 
 	//utility functions

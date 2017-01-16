@@ -39,6 +39,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LinearMotion", "LinearMotio
 		{F9670FE3-B9F7-4044-8AD9-B63E90CF96A5} = {F9670FE3-B9F7-4044-8AD9-B63E90CF96A5}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fkntest", "fkntest\fkntest.vcxproj", "{22976104-AEFA-47F3-A7F8-90B8B772A0AF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AF59BB0B-E059-4773-83DC-728A949647DA} = {AF59BB0B-E059-4773-83DC-728A949647DA}
+		{F9670FE3-B9F7-4044-8AD9-B63E90CF96A5} = {F9670FE3-B9F7-4044-8AD9-B63E90CF96A5}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -101,6 +107,14 @@ Global
 		{3283CCB5-41F7-4917-A507-DCA02295D78A}.Release|x64.ActiveCfg = Release|Win32
 		{3283CCB5-41F7-4917-A507-DCA02295D78A}.Release|x86.ActiveCfg = Release|Win32
 		{3283CCB5-41F7-4917-A507-DCA02295D78A}.Release|x86.Build.0 = Release|Win32
+		{22976104-AEFA-47F3-A7F8-90B8B772A0AF}.Debug|x64.ActiveCfg = Debug|x64
+		{22976104-AEFA-47F3-A7F8-90B8B772A0AF}.Debug|x64.Build.0 = Debug|x64
+		{22976104-AEFA-47F3-A7F8-90B8B772A0AF}.Debug|x86.ActiveCfg = Debug|Win32
+		{22976104-AEFA-47F3-A7F8-90B8B772A0AF}.Debug|x86.Build.0 = Debug|Win32
+		{22976104-AEFA-47F3-A7F8-90B8B772A0AF}.Release|x64.ActiveCfg = Release|x64
+		{22976104-AEFA-47F3-A7F8-90B8B772A0AF}.Release|x64.Build.0 = Release|x64
+		{22976104-AEFA-47F3-A7F8-90B8B772A0AF}.Release|x86.ActiveCfg = Release|Win32
+		{22976104-AEFA-47F3-A7F8-90B8B772A0AF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

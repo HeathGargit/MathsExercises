@@ -18,8 +18,7 @@ public:
 	Vector2& operator * (const float other);
 	friend Vector2 operator * (float a_LHS, Vector2& a_RHS);
 
-
-	//working function
+	//working functions
 	float dot(const Vector2& inputVector);
 	
 	//utility functions
@@ -29,10 +28,11 @@ public:
 	std::string to_string();
 	explicit operator float* () const;
 
-
-public:
-	float x;
-	float y;
+	union
+	{
+		struct { float x, y; };
+		struct { float v[2]; };
+	};
 };
 
 #endif

@@ -16,8 +16,8 @@ public:
 	friend Vector4 operator * (float a_LHS, Vector4& a_RHS);
 
 	//working functions
-	float dot(const Vector4& other);
-	Vector4 cross(const Vector4& other);
+	float dot(const Vector4& other); //returns the dot product of this and another vector4
+	Vector4 cross(const Vector4& other); //returns the cross product of this and another vector4
 
 	//utility functions
 	operator float* (); //casts the Vector4 to an array of four floats

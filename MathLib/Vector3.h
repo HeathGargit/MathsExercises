@@ -4,6 +4,7 @@
 
 #include <string>
 
+
 class Vector3
 {
 public:
@@ -18,6 +19,7 @@ public:
 	Vector3& operator- (const Vector3& other);
 	Vector3& operator* (const float other);
 	friend Vector3 operator * (float a_LHS, Vector3& a_RHS);
+	//friend Vector3 operator * (Matrix3& a_LHS, Vector3& a_RHS);
 
 	//working functions
 	//cross product
@@ -37,10 +39,6 @@ public:
 		struct { float v[3]; };
 	};
 	
-	/*//variables
-	float x;
-	float y;
-	float z;*/
 };
 
 #endif

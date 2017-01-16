@@ -105,14 +105,25 @@ Matrix3 Matrix3::createTranslation(float x, float y)
 					x, y, 1.0f);
 }
 
-Vector3 Matrix3::operator*(const Vector3& a_RHS)
+Matrix3 Matrix3::operator=(const Matrix3 & a_RHS)
+{
+	Matrix3 result;
+	for (int i = 0; i < 9; i++)
+	{
+		result.m[i] = a_RHS.m[i];
+	}
+
+	return result;
+}
+
+Vector3 operator*(const Matrix3 & a_LHS, const Vector3 & a_RHS)
 {
 	Vector3 result(0, 0, 0);
 	for (int resultColumn = 0; resultColumn < 3; resultColumn++)
 	{
 		for (int matrixRow = 0; matrixRow < 3; matrixRow++)
 		{
-			result.v[resultColumn] += (mm[resultColumn][matrixRow] * a_RHS.v[matrixRow]);
+			result.v[resultColumn] += (a_LHS.mm[resultColumn][matrixRow] * a_RHS.v[matrixRow]);
 		}
 	}
 
