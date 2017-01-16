@@ -250,3 +250,13 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+#Heath trying to clean up project fodlers
+DotandCrossExercises/
+fkntest/
+GraphFunctions/
+LinearMotion/
+MathApp/
+Matrices/
+Trigonometry/
+
